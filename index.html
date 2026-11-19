@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<!-- HTML5 Belge Türü Tanımı (Document Type Definition) -->
+<html lang="tr">
+<!-- Sayfa üst bilgi ve meta verileri alanı (Head) -->
+
+<head>
+    <!-- Karakter kodlaması: Türkçe karakter desteği için UTF-8 tanımlanmıştır -->
+    <meta charset="UTF-8">
+
+    <!-- Duyarlı (Responsive) tasarım için görünüm alanı (viewport) ölçeklendirme ayarı -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Tarayıcı sekmesinde ve arama motorlarında görünecek sayfa başlığı -->
+    <title>Salih Bilal Korkmaz — Akademik Özgeçmiş &amp; Kişisel Tanıtım</title>
+
+    <!-- Sayfa açıklaması meta etiketi (SEO ve erişilebilirlik için) -->
+    <meta name="description"
+        content="Salih Bilal Korkmaz - Kapadokya Üniversitesi Bilgi Güvenliği Teknolojisi &amp; Yapay Zeka ÇAP öğrencisi akademik CV sayfası.">
+
+    <!-- Harici CSS stil dosyasının bağlanması (Şartname: assets/css/style.css) -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Harici JavaScript dosyasının defer özniteliği ile bağlanması (Şartname: assets/js/main.js defer) -->
+    <script src="assets/js/main.js" defer></script>
+</head>
+
+<!-- Sayfa gövdesi: Varsayılan olarak koyu tema sınıfı atanmıştır -->
+
+<body class="koyu-tema">
+
+    <!-- ========================================================================== -->
+    <!-- ÜST BİLGİ VE NAVİGASYON BLOĞU (HEADER)                                      -->
+    <!-- Şartname Gereksinimi: Semantik <header> ve <nav> etiketleri               -->
+    <!-- ========================================================================== -->
+    <header class="navbar">
+        <!-- Navigasyon genişliğini sınırlandıran ve ortalayan kapsayıcı -->
+        <div class="nav-container">
+
+            <!-- Sol taraf: Yazar / Site Marka Başlığı Bağlantısı -->
+            <a href="#" class="nav-brand">Salih Bilal Korkmaz</a>
+
+            <!-- Ana gezinti menüsü: Sayfa içi bölümlere akıcı kaydırma bağlantıları -->
+            <nav class="nav-menu" aria-label="Ana Gezinme Menüsü">
+                <!-- Sayfa içi Hakkımda bölümüne yönlendiren bağlantı -->
+                <a href="#hakkimda">Hakkımda</a>
+
+                <!-- Sayfa içi Eğitim ve Beceriler bölümüne yönlendiren bağlantı -->
+                <a href="#beceriler">Eğitim ve Beceriler</a>
+
+                <!-- Sayfa içi İletişim bölümüne yönlendiren bağlantı -->
+                <a href="#iletisim">İletişim</a>
+
+                <!-- Koyu / Açık tema değiştirme butonu (Şartname: main.js classList.toggle ile kontrol edilir) -->
+                <button id="tema-degistir-butonu" type="button" class="theme-toggle-btn">Açık Tema</button>
+            </nav>
+
+            <!-- Mobil ekranlarda menüyü açıp kapatan hamburger simgesi -->
+            <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Menüyü Aç/Kapat">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ========================================================================== -->
+    <!-- ANA İÇERİK BLOĞU (MAIN)                                                    -->
+    <!-- Şartname Gereksinimi: Semantik <main> etiketi ve içinde 3 ana bölüm       -->
+    <!-- ========================================================================== -->
+    <main class="main-content">
+
+        <!-- ====================================================================== -->
+        <!-- BÖLÜM 1: HAKKIMDA (ID="HAKKIMDA")                                      -->
+        <!-- Şartname Gereksinimi: id="hakkimda", kısa tanıtım paragrafı ve görsel  -->
+        <!-- ====================================================================== -->
+        <section id="hakkimda" class="academic-section" aria-labelledby="hakkimda-baslik">
+            <!-- Akademik sayfa genişliğini sınırlayan kapsayıcı -->
+            <div class="academic-container">
+                <!-- Hugo Academic CV tarzı iki sütunlu profil yerleşimi -->
+                <div class="profile-layout">
+
+                    <!-- Sol Sütun: Akademik Profil Yan Kartı (Sidebar) -->
+                    <div class="profile-sidebar">
+                        <!-- Profil avatar görselini çevreleyen dairesel çerçeve -->
+                        <div class="avatar-wrapper">
+                            <!-- Şartname Kuralı: assets/img/ klasöründen yüklenen ve anlamlı alt metni olan görsel -->
+                            <img src="assets/img/profil.svg" alt="Salih Bilal Korkmaz akademik profil vektör görseli"
+                                class="profile-avatar">
+                        </div>
+
+                        <!-- Şartname Kuralı: Sayfada tek bir <h1> bulunmalı ve öğrencinin adını içermelidir -->
+                        <h1 class="author-name">Salih Bilal Korkmaz</h1>
+
+                        <!-- Yazarın akademik çalışma rolü (Statik metin, animasyonsuz) -->
+                        <div class="author-role">Bilgi Güvenliği Teknolojisi &amp; AI & ML</div>
+
+                        <!-- Yazarın bağlı olduğu üniversite kurumu bilgisi -->
+                        <div class="author-institution">Kapadokya Üniversitesi</div>
+
+                        <!-- Akademik ve teknik profil bağlantıları listesi -->
+                        <div class="profile-links">
+                            <!-- Kurumsal e-posta bağlantısı -->
+                            <a href="mailto:salihbilal.korkmaz@kun.edu.tr" class="profile-link-btn"
+                                title="E-posta Gönder">E-posta</a>
+
+                            <!-- GitHub açık kaynak profil bağlantısı -->
+                            <a href="https://github.com/sBilalK" target="_blank" rel="noopener" class="profile-link-btn"
+                                title="GitHub Profili">GitHub</a>
+
+                            <!-- LinkedIn profesyonel ağ profili bağlantısı -->
+                            <a href="https://linkedin.com/in/sbilalkorkmaz" target="_blank" rel="noopener"
+                                class="profile-link-btn" title="LinkedIn Profili">LinkedIn</a>
+
+                            <!-- Kişisel portfolyo ve blog web sitesi bağlantısı -->
+                            <a href="https://salihbilalkorkmaz.com.tr" target="_blank" rel="noopener"
+                                class="profile-link-btn" title="Kişisel Web Sitesi">Web Sitesi</a>
+                        </div>
+                    </div>
+
+                    <!-- Sağ Sütun: Akademik Biyografi Metni ve İlgi Alanları -->
+                    <div class="biography-content">
+                        <!-- Bölüm başlığı: h2 seviyesinde semantic başlık -->
+                        <h2 id="hakkimda-baslik" class="content-heading">Biyografi</h2>
+
+                        <!-- Biyografi paragrafları metin bloğu -->
+                        <div class="bio-text">
+                            <!-- Genel tanıtım ve akademik program açıklaması paragrafı -->
+                            <p>
+                                Merhaba, ben <strong>Salih Bilal Korkmaz</strong>. Kapadokya Üniversitesi
+                                <strong>Bilgi Güvenliği Teknolojisi</strong> öğrencisiyim ve aynı zamanda
+                                <strong>Yapay Zeka ve Makine Öğrenmesi</strong> alanında çift anadal yapıyorum.
+                            </p>
+
+                            <!-- Uzmanlık alanları, çalışma konuları ve teknik tutkular paragrafı -->
+                            <p>
+                                Akademik ve teknik çalışmalarımda; <strong>siber güvenlik</strong>, <strong>otonom
+                                    tehdit istihbaratı</strong>,
+                                <strong>yerel büyük dil modelleri (LLM)</strong> ve <strong>gömülü sistem
+                                    mimarileri</strong> üzerine yoğunlaşıyorum.
+                                Yazılım güvenliğinin yanı sıra sıfırdan özel FPV drone platformları tasarlayıp inşa
+                                etmek,
+                                KiCad ile çok katmanlı PCB devreleri üretmek ve Linux tabanlı sunucu altyapıları
+                                yönetmek başlıca uzmanlık alanlarımdır.
+                            </p>
+                        </div>
+
+                        <!-- Araştırma ve ilgi alanları listesi alt bloğu -->
+                        <div class="interests-block">
+                            <!-- Alt başlık: h3 seviyesinde başlık hiyerarşisi -->
+                            <h3 class="sub-heading">Araştırma &amp; İlgi Alanları</h3>
+
+                            <!-- Sırasız liste (ul) ile ilgi alanlarının maddelenmesi -->
+                            <ul class="academic-interests-list">
+                                <li>Ağ Paket Analizi, Tehdit Tespiti ve Kriptografi</li>
+                                <li>Otonom Tehdit İstihbaratı (LSTM-AE &amp; Yerel LLM Entegrasyonu)</li>
+                                <li>Gömülü Sistemler, Mikrodenetleyiciler ve Özel PCB Tasarımı</li>
+                                <li>FPV Aviyonik Mimarisi, Güç Dağıtım Devreleri ve Telemetri</li>
+                                <li>Linux Sistem Yönetimi, Docker Konteynerizasyonu ve Açık Kaynak Araçlar</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ====================================================================== -->
+        <!-- BÖLÜM 2: EĞİTİM VE BECERİLER (ID="BECERİLER")                           -->
+        <!-- Şartname Gereksinimi: id="beceriler", en az 1 <ol>, 1 <ul> ve 1 <table>-->
+        <!-- ====================================================================== -->
+        <section id="beceriler" class="academic-section section-alt" aria-labelledby="beceriler-baslik">
+            <!-- Bölüm içerik kapsayıcısı -->
+            <div class="academic-container">
+                <!-- Bölüm ana başlık alanı -->
+                <div class="section-title-wrap">
+                    <h2 id="beceriler-baslik" class="section-main-title">Eğitim ve Beceriler</h2>
+                    <p class="section-sub-title">Kronolojik akademik geçmişim, yürüttüğüm teknik projeler ve yetkinlik
+                        düzeyleri</p>
+                </div>
+
+                <!-- Eğitim zaman çizelgesi ve projeler listesini içeren iki sütunlu ızgara -->
+                <div class="cv-two-column">
+
+                    <!-- Sol Sütun: Şartname Gereği En Az Bir Sıralı Liste (<ol>) -->
+                    <div class="cv-card">
+                        <h3 class="cv-card-title">Akademik Eğitim Geçmişi</h3>
+
+                        <!-- Sıralı liste (<ol>) etiketi: Kronolojik eğitim basamakları -->
+                        <ol class="academic-timeline-list">
+                            <!-- 1. Eğitim Basamağı: Çift Anadal Programı -->
+                            <li class="timeline-item">
+                                <div class="timeline-degree">Çift Anadal Programı (ÇAP)</div>
+                                <div class="timeline-school">Kapadokya Üniversitesi – Yapay Zeka ve Makine Öğrenmesi
+                                </div>
+                                <div class="timeline-date">2026 - Günümüz</div>
+                            </li>
+
+                            <!-- 2. Eğitim Basamağı: Lisans Ana Dal -->
+                            <li class="timeline-item">
+                                <div class="timeline-degree">Lisans (Ana Dal)</div>
+                                <div class="timeline-school">Kapadokya Üniversitesi – Bilgi Güvenliği Teknolojisi</div>
+                                <div class="timeline-date">2025 - Günümüz</div>
+                            </li>
+
+                            <!-- 3. Eğitim Basamağı: Lise Eğitimi -->
+                            <li class="timeline-item">
+                                <div class="timeline-degree">Lise Eğitimi</div>
+                                <div class="timeline-school">Bartın Anadolu İmam Hatip Lisesi</div>
+                                <div class="timeline-date">Tamamlandı</div>
+                            </li>
+                        </ol>
+                    </div>
+
+                    <!-- Sağ Sütun: Şartname Gereği En Az Bir Sırasız Liste (<ul>) -->
+                    <div class="cv-card">
+                        <h3 class="cv-card-title">Öne Çıkan Projeler &amp; Çalışmalar</h3>
+
+                        <!-- Sırasız liste (<ul>) etiketi: Geliştirilen önemli teknik projeler -->
+                        <ul class="academic-projects-list">
+                            <!-- 1. Proje Maddesi: DevFlow CI/CD -->
+                            <li class="project-item">
+                                <div class="project-name">DevFlow — CI/CD Dağıtım Platformu</div>
+                                <div class="project-desc">Docker ve Kubernetes tabanlı otomatik test ve üretim
+                                    konuşlandırma altyapısı.</div>
+                            </li>
+
+                            <!-- 2. Proje Maddesi: NeoShop E-Ticaret -->
+                            <li class="project-item">
+                                <div class="project-name">NeoShop — E-Ticaret ve Envanter Mimarisi</div>
+                                <div class="project-desc">Next.js, Stripe ve Redis ile gerçek zamanlı veri akışlı
+                                    alışveriş platformu.</div>
+                            </li>
+
+                            <!-- 3. Proje Maddesi: ChatSphere AI -->
+                            <li class="project-item">
+                                <div class="project-name">ChatSphere AI — Çok Kullanıcılı İletişim</div>
+                                <div class="project-desc">OpenAI API ve WebSocket ile anlık çoklu mesajlaşma ve akıllı
+                                    asistan sistemi.</div>
+                            </li>
+
+                            <!-- 4. Proje Maddesi: VaultKey Şifre Kasası -->
+                            <li class="project-item">
+                                <div class="project-name">VaultKey — Güvenli Şifre Yöneticisi</div>
+                                <div class="project-desc">Rust ve SQLite ile yerel uçtan uca AES-256 şifreli veri
+                                    kasası.</div>
+                            </li>
+
+                            <!-- 5. Proje Maddesi: FPV Donanım ve Telemetri -->
+                            <li class="project-item">
+                                <div class="project-name">FPV Otonom Telemetri Sistemi</div>
+                                <div class="project-desc">Özel güç dağıtım kartı, lehimleme ve gömülü aviyonik kontrol
+                                    ünitesi.</div>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <!-- ============================================================== -->
+                <!-- ŞARTNAME TABLO GEREKSİNİMİ                                    -->
+                <!-- En az 3 sütunlu, en az 3 satırlı, thead, tbody ve th içeren    -->
+                <!-- ============================================================== -->
+                <div class="table-card">
+                    <h3 class="cv-card-title">Teknik Yetkinlikler Matrisi</h3>
+                    <p class="table-info-note">Akademik çalışmalarda ve geliştirme süreçlerinde aktif olarak kullanılan
+                        teknolojiler:</p>
+
+                    <!-- Tablo taşmasını önleyen ve küçük ekranlarda yatay kaydırma sağlayan kutu -->
+                    <div class="table-responsive-box">
+                        <table class="academic-table">
+                            <!-- Tablo Başlık Alanı (thead) -->
+                            <thead>
+                                <tr>
+                                    <!-- Başlık hücreleri: scope="col" özniteliği ile semantik tanımlama -->
+                                    <th scope="col">Beceri / Teknoloji</th>
+                                    <th scope="col">Kategori / Alanı</th>
+                                    <th scope="col">Yetkinlik Düzeyi</th>
+                                </tr>
+                            </thead>
+
+                            <!-- Tablo Veri Gövdesi (tbody) -->
+                            <tbody>
+                                <!-- 1. Tablo Veri Satırı: Python & PyTorch -->
+                                <tr>
+                                    <td class="tech-cell">Python &amp; PyTorch</td>
+                                    <td>Yapay Zeka &amp; Siber Güvenlik</td>
+                                    <td><span class="academic-badge badge-adv">İleri Düzey</span></td>
+                                </tr>
+
+                                <!-- 2. Tablo Veri Satırı: Linux, Docker & Bash -->
+                                <tr>
+                                    <td class="tech-cell">Linux, Docker &amp; Bash</td>
+                                    <td>Sistem Yönetimi &amp; DevOps</td>
+                                    <td><span class="academic-badge badge-adv">İleri Düzey</span></td>
+                                </tr>
+
+                                <!-- 3. Tablo Veri Satırı: React, Next.js & TypeScript -->
+                                <tr>
+                                    <td class="tech-cell">React, Next.js &amp; TypeScript</td>
+                                    <td>Frontend Mimarisi</td>
+                                    <td><span class="academic-badge badge-mid">Orta - İleri</span></td>
+                                </tr>
+
+                                <!-- 4. Tablo Veri Satırı: C++, C# & Rust -->
+                                <tr>
+                                    <td class="tech-cell">C++, C# &amp; Rust</td>
+                                    <td>Sistem &amp; Donanım Programlama</td>
+                                    <td><span class="academic-badge badge-mid">Orta - İleri</span></td>
+                                </tr>
+
+                                <!-- 5. Tablo Veri Satırı: KiCad & 3D Modelleme -->
+                                <tr>
+                                    <td class="tech-cell">KiCad &amp; 3D Modelleme</td>
+                                    <td>Donanım &amp; FPV Aviyonik</td>
+                                    <td><span class="academic-badge badge-mid">Orta - İleri</span></td>
+                                </tr>
+
+                                <!-- 6. Tablo Veri Satırı: HTML5, CSS3 & JavaScript -->
+                                <tr>
+                                    <td class="tech-cell">HTML5, CSS3 &amp; JavaScript</td>
+                                    <td>Web Standartları &amp; Tasarım</td>
+                                    <td><span class="academic-badge badge-base">Orta Düzey</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ====================================================================== -->
+        <!-- BÖLÜM 3: İLETİŞİM (ID="İLETİSİM")                                      -->
+        <!-- Şartname Gereksinimi: id="iletisim", Form, Dış Bağlantı ve Doğrulama   -->
+        <!-- ====================================================================== -->
+        <section id="iletisim" class="academic-section" aria-labelledby="iletisim-baslik">
+            <div class="academic-container">
+                <!-- Bölüm başlığı alanı -->
+                <div class="section-title-wrap">
+                    <h2 id="iletisim-baslik" class="section-main-title">İletişim</h2>
+                    <p class="section-sub-title">Akademik ortaklıklar, araştırma iş birlikleri veya teknik sorularınız
+                        için bana ulaşabilirsiniz</p>
+                </div>
+
+                <!-- Form ve iletişim detaylarını yan yana sunan ızgara düzeni -->
+                <div class="contact-layout">
+
+                    <!-- Sol Taraf: Doğrulama Kurallı İletişim Formu -->
+                    <div class="contact-card">
+                        <h3 class="contact-box-title">Mesaj Gönderin</h3>
+
+                        <!-- Şartname Kuralı: action verilmez, form gönderimi JavaScript (main.js) ile karşılanır -->
+                        <form id="academic-form" novalidate>
+
+                            <!-- Ad Soyad Giriş Alanı Grubu -->
+                            <div class="form-row">
+                                <!-- Şartname Kuralı: for özniteliği alanın id değeri ile eşleşmelidir -->
+                                <label for="ad-soyad" class="field-label">Ad Soyad</label>
+                                <!-- Şartname Kuralı: type="text" ve required özniteliği -->
+                                <input type="text" id="ad-soyad" name="ad-soyad" class="field-input"
+                                    placeholder="Adınız ve Soyadınız" required>
+                            </div>
+
+                            <!-- E-posta Giriş Alanı Grubu -->
+                            <div class="form-row">
+                                <!-- Şartname Kuralı: for özniteliği alanın id değeri ile eşleşmelidir -->
+                                <label for="eposta" class="field-label">E-posta Adresi</label>
+                                <!-- Şartname Kuralı: type="email" ve required özniteliği -->
+                                <input type="email" id="eposta" name="eposta" class="field-input"
+                                    placeholder="ornek@alanadi.com" required>
+                            </div>
+
+                            <!-- Mesaj Metin Alanı Grubu -->
+                            <div class="form-row">
+                                <!-- Şartname Kuralı: for özniteliği alanın id değeri ile eşleşmelidir -->
+                                <label for="mesaj" class="field-label">Mesaj Metni</label>
+                                <!-- Şartname Kuralı: <textarea> ve required özniteliği -->
+                                <textarea id="mesaj" name="mesaj" class="field-textarea" rows="5"
+                                    placeholder="Mesajınızı buraya yazınız..." required></textarea>
+                            </div>
+
+                            <!-- Şartname Kuralı: <button type="submit"> gönderim butonu -->
+                            <button type="submit" class="submit-btn">Mesajı İlet</button>
+
+                            <!-- Şartname Kuralı: Uyarılar alert() ile DEĞİL sayfadaki <p> etiketine yazdırılır -->
+                            <p id="form-sonuc" class="form-alert" role="status" aria-live="polite"></p>
+                        </form>
+                    </div>
+
+                    <!-- Sağ Taraf: İletişim Kanalları ve Şartname Dış Bağlantısı -->
+                    <div class="contact-card info-card">
+                        <h3 class="contact-box-title">Doğrudan İletişim &amp; Kurum</h3>
+
+                        <!-- Doğrudan iletişim listesi -->
+                        <div class="academic-contact-list">
+                            <div class="contact-detail-row">
+                                <span class="detail-label">Kurumsal E-posta:</span>
+                                <span class="detail-value">salihbilal.korkmaz@kun.edu.tr</span>
+                            </div>
+                            <div class="contact-detail-row">
+                                <span class="detail-label">GitHub:</span>
+                                <a href="https://github.com/sBilalK" target="_blank" rel="noopener"
+                                    class="detail-link">github.com/sBilalK</a>
+                            </div>
+                            <div class="contact-detail-row">
+                                <span class="detail-label">LinkedIn:</span>
+                                <a href="https://linkedin.com/in/sbilalkorkmaz" target="_blank" rel="noopener"
+                                    class="detail-link">linkedin.com/in/sbilalkorkmaz</a>
+                            </div>
+                        </div>
+
+                        <!-- Şartname Kuralı: En az 1 dış bağlantı target="_blank" ve rel="noopener" ile yeni sekmede açılmalıdır -->
+                        <div class="affiliation-box">
+                            <div class="affil-title">Kapadokya Üniversitesi</div>
+                            <div class="affil-sub">Bilgisayar ve Bilişim Teknolojileri Fakültesi</div>
+                            <div class="affil-program">Bilgi Güvenliği Teknolojisi Programı</div>
+                            <!-- Resmi dış bağlantı etiketi -->
+                            <a href="https://kapadokya.edu.tr" target="_blank" rel="noopener"
+                                class="affil-external-link">
+                                Üniversite Resmi Web Sitesi &rarr;
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ========================================================================== -->
+    <!-- SAYFA ALT BİLGİ ALANI (FOOTER)                                             -->
+    <!-- Şartname Gereksinimi: Semantik <footer> etiketi ve telif hakkı bilgisi     -->
+    <!-- ========================================================================== -->
+    <footer class="academic-footer">
+        <div class="academic-container footer-content">
+            <!-- Telif hakkı ve öğrenci adı -->
+            <div class="footer-left-text">
+                &copy; 2026-2027 Salih Bilal Korkmaz &middot; Tüm hakları saklıdır.
+            </div>
+
+            <!-- Ders ve üniversite bilgisi -->
+            <div class="footer-right-text">
+                BGY207 Web Tasarımı Projesi // Kapadokya Üniversitesi
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

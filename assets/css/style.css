@@ -1,0 +1,895 @@
+/* ==========================================================================
+   Kişisel Tanıtım Sayfası - Stil Dosyası (style.css)
+   Tasarım: Hugo Blox Academic CV Teması (Minimalist, Akademik ve Sessiz Zanaat)
+   Öğrenci: Salih Bilal Korkmaz (25901005)
+   Ders: BGY207 – Web Tasarımı
+   ========================================================================== */
+
+/* ==========================================================================
+   1. KÖK DEĞİŞKENLER VE TEMA PALETİ
+   ========================================================================== */
+
+/* Kök değişkenler (:root): Koyu akademik tema renk paleti, tipografi ve animasyon geçiş süresi */
+:root {
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --bg-card: #1e293b;
+    --border-color: #334155;
+    --border-hover: #475569;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    --accent-color: #38bdf8;
+    --accent-hover: #7dd3fc;
+    --accent-text: #082f49;
+    --badge-bg: rgba(56, 189, 248, 0.12);
+    --badge-border: rgba(56, 189, 248, 0.28);
+    --badge-color: #38bdf8;
+    --badge-adv-bg: rgba(52, 211, 153, 0.12);
+    --badge-adv-color: #34d399;
+    --badge-adv-border: rgba(52, 211, 153, 0.3);
+    --alert-error-bg: rgba(239, 68, 68, 0.12);
+    --alert-error-text: #f87171;
+    --alert-error-border: #ef4444;
+    --alert-success-bg: rgba(52, 211, 153, 0.12);
+    --alert-success-text: #34d399;
+    --alert-success-border: #10b981;
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+    --transition: 0.2s ease-in-out;
+}
+
+/* Açık tema modu değişkenleri: Temiz, beyaz zeminli ve klasik akademik renk değerleri */
+body:not(.koyu-tema) {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8fafc;
+    --bg-card: #ffffff;
+    --border-color: #e2e8f0;
+    --border-hover: #cbd5e1;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #64748b;
+    --accent-color: #0284c7;
+    --accent-hover: #0369a1;
+    --accent-text: #ffffff;
+    --badge-bg: rgba(2, 132, 199, 0.08);
+    --badge-border: rgba(2, 132, 199, 0.2);
+    --badge-color: #0284c7;
+    --badge-adv-bg: rgba(16, 185, 129, 0.1);
+    --badge-adv-color: #059669;
+    --badge-adv-border: rgba(16, 185, 129, 0.25);
+    --alert-error-bg: #fef2f2;
+    --alert-error-text: #dc2626;
+    --alert-error-border: #dc2626;
+    --alert-success-bg: #f0fdf4;
+    --alert-success-text: #15803d;
+    --alert-success-border: #15803d;
+}
+
+/* ==========================================================================
+   2. GENEL SIFIRLAMA VE TEMEL BİÇİMLENDİRME
+   ========================================================================== */
+
+/* Sayfa geneli evrensel seçici (*): Kutu modeli sıfırlaması ve varsayılan margin/padding temizliği */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Sayfa temel gövdesi (body): Arka plan rengi, yazı tipi, satır yüksekliği ve tema geçiş özellikleri */
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.7;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    transition: background-color var(--transition), color var(--transition);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================================================
+   3. ÜST BİLGİ VE NAVİGASYON (NAVBAR)
+   ========================================================================== */
+
+/* Sabit üst bilgi çubuğu (.navbar): Sayfa kaydırılırken üstte sabit (sticky) kalmasını sağlar */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: var(--bg-primary);
+    border-bottom: 1px solid var(--border-color);
+    padding: 16px 24px;
+    transition: background-color var(--transition), border-color var(--transition);
+}
+
+/* Navigasyon içerik genişlik sınırlayıcısı (.nav-container): 1140px genişlik ve Flexbox iki yana hizalama */
+.nav-container {
+    max-width: 1140px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Sol üst köşe marka / yazar adı bağlantısı (.nav-brand): Kalın ve net tipografi */
+.nav-brand {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+}
+
+/* Navigasyon menüsü bağlantılar grubu (.nav-menu): Flexbox ile yan yana aralıklı dizilim */
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+/* Menü içi bağlantı etiketleri (.nav-menu a): Sade görünüm ve renk geçiş efekti */
+.nav-menu a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color var(--transition);
+}
+
+/* Menü bağlantısı üzerine gelme ve klavye odağı kuralı (:hover, :focus-visible) */
+.nav-menu a:hover, .nav-menu a:focus-visible {
+    color: var(--accent-color);
+    outline: none;
+}
+
+/* Tema değiştirme butonu (.theme-toggle-btn): Yuvarlatılmış kenarlık ve sessiz buton stili */
+.theme-toggle-btn {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 6px 14px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    font-family: var(--font-sans);
+    cursor: pointer;
+    transition: border-color var(--transition), background-color var(--transition);
+}
+
+/* Tema butonu fare üzerine gelme durumu (.theme-toggle-btn:hover) */
+.theme-toggle-btn:hover {
+    border-color: var(--accent-color);
+}
+
+/* Mobil menü açma kapama butonu (.nav-toggle): Küçük ekranlar için hamburger menü düğmesi */
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+}
+
+/* Mobil menü butonunun içindeki yatay çizgiler (.nav-toggle span) */
+.nav-toggle span {
+    width: 22px;
+    height: 2px;
+    background-color: var(--text-primary);
+    border-radius: 2px;
+    display: block;
+}
+
+/* ==========================================================================
+   4. ANA İÇERİK VE AKADEMİK BÖLÜM YAPISI
+   ========================================================================== */
+
+/* Ana içerik kapsayıcısı (.main-content): Sayfa esnekliğini dikeyde tamamlar */
+.main-content {
+    flex: 1;
+}
+
+/* Akademik bölüm temel blok yapısı (.academic-section): Standart dikey boşluklar */
+.academic-section {
+    padding: 72px 24px;
+}
+
+/* Alternatif arka planlı bölüm (.academic-section.section-alt): Görsel hiyerarşi için arka plan tonu */
+.academic-section.section-alt {
+    background-color: var(--bg-secondary);
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* İçerik merkezleme konteyneri (.academic-container): Sayfadaki tüm bölümlerin ortak 1140px genişlik sınırı */
+.academic-container {
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+/* ==========================================================================
+   5. HUGO ACADEMIC PROFİL YERLEŞİMİ (HAKKIMDA)
+   ========================================================================== */
+
+/* Hugo Academic tarzı iki sütunlu profil yerleşimi (.profile-layout): Sol sidebar, sağ biyografi */
+.profile-layout {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 64px;
+    align-items: start;
+}
+
+/* Sol profil yan paneli (.profile-sidebar): Dikey akış, ortalanmış avatar ve bilgiler */
+.profile-sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Profil avatar dış halkası (.avatar-wrapper): Dairesel kenarlık ve iç dolgu */
+.avatar-wrapper {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    padding: 4px;
+    border: 2px solid var(--border-color);
+    margin-bottom: 20px;
+    background-color: var(--bg-secondary);
+}
+
+/* Dairesel profil görseli (.profile-avatar): Yuvarlak kesim ve tam doldurma */
+.profile-avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    display: block;
+    object-fit: cover;
+    background-color: #020617;
+}
+
+/* Yazarın tam adı (.author-name): Sayfadaki tek h1 başlığı */
+.author-name {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.25;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+}
+
+/* Yazarın rolü / ünvanı (.author-role): Statik, sakin ve net kurumsal ifade */
+.author-role {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin-bottom: 4px;
+    font-weight: 500;
+}
+
+/* Yazarın bağlı olduğu üniversite kurumu (.author-institution): Sessiz gri ton */
+.author-institution {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+}
+
+/* Profil sosyal ve akademik bağlantı butonları listesi (.profile-links) */
+.profile-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+}
+
+/* Profil bağlantı butonu (.profile-link-btn): Akademik rozet buton biçimlendirmesi */
+.profile-link-btn {
+    padding: 6px 14px;
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 500;
+    transition: border-color var(--transition), color var(--transition);
+}
+
+/* Profil bağlantı butonu fare üzerine gelme durumu (.profile-link-btn:hover) */
+.profile-link-btn:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
+/* Sağ biyografi içerik alanı (.biography-content): Dikey metin blokları akışı */
+.biography-content {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+/* İçerik ana başlığı (.content-heading / h2): Kalın başlık ve alt çizgi ayracı */
+.content-heading {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--border-color);
+}
+
+/* Biyografi paragrafları kümesi (.bio-text): Paragraflar arası ritmik boşluk */
+.bio-text {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    color: var(--text-secondary);
+}
+
+/* Standart paragraf biçimlendirmesi (p): Okunabilir satır aralığı */
+p {
+    font-size: 1rem;
+    line-height: 1.75;
+}
+
+/* Vurgulu metinler (strong): Ana metin rengi ve 600 font ağırlığı */
+strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+/* İlgi alanları alt bloğu (.interests-block): Üst kenarlıkla ayrılmış bölüm */
+.interests-block {
+    margin-top: 8px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border-color);
+}
+
+/* Alt başlıklar (.sub-heading / h3): Bölüm içi h3 başlık hiyerarşisi */
+.sub-heading {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+}
+
+/* Akademik ilgi alanları sırasız listesi (.academic-interests-list / ul) */
+.academic-interests-list {
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: var(--text-secondary);
+}
+
+/* İlgi alanı liste öğesi (.academic-interests-list li) */
+.academic-interests-list li {
+    font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   6. EĞİTİM, PROJELER VE ZAMAN ÇİZELGESİ (TIMELINE)
+   ========================================================================== */
+
+/* Bölüm başlığı sarmalayıcısı (.section-title-wrap): Ortalanmış metin bloğu */
+.section-title-wrap {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 48px;
+}
+
+/* Bölüm ana başlığı (.section-main-title) */
+.section-main-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+}
+
+/* Bölüm alt başlık açıklaması (.section-sub-title) */
+.section-sub-title {
+    font-size: 1rem;
+    color: var(--text-secondary);
+}
+
+/* İki sütunlu CV kartları yerleşimi (.cv-two-column): Eğitim ve Projeler kartları */
+.cv-two-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-bottom: 48px;
+}
+
+/* CV bilgi kartı (.cv-card): Yüzey arka planı, kenarlık ve iç dolgu */
+.cv-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 32px;
+}
+
+/* CV kartı başlığı (.cv-card-title): Kart içi h3 başlığı */
+.cv-card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Akademik zaman çizelgesi sıralı listesi (.academic-timeline-list / ol) */
+.academic-timeline-list {
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Zaman çizelgesi tekil maddesi (.timeline-item) */
+.timeline-item {
+    font-size: 0.95rem;
+}
+
+/* Derece / Program adı (.timeline-degree) */
+.timeline-degree {
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+}
+
+/* Kurum / Okul adı (.timeline-school) */
+.timeline-school {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* Tarih aralığı (.timeline-date): Monospace yazı stili ve vurgu rengi */
+.timeline-date {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--accent-color);
+    margin-top: 2px;
+}
+
+/* Akademik projeler sırasız listesi (.academic-projects-list / ul) */
+.academic-projects-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* Proje tekil maddesi (.project-item) */
+.project-item {
+    font-size: 0.95rem;
+}
+
+/* Proje başlığı (.project-name) */
+.project-name {
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+}
+
+/* Proje açıklaması (.project-desc): İkincil metin tonu */
+.project-desc {
+    color: var(--text-secondary);
+    font-size: 0.88rem;
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   7. TEKNİK YETKİNLİKLER TABLOSU
+   ========================================================================== */
+
+/* Tablo dış kartı (.table-card): Tabloyu çevreleyen kart kapsayıcısı */
+.table-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 32px;
+}
+
+/* Tablo üst bilgilendirme notu (.table-info-note) */
+.table-info-note {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+}
+
+/* Tablo duyarlı kaydırma kutusu (.table-responsive-box): Taşmaları önleyen yatay kaydırma */
+.table-responsive-box {
+    width: 100%;
+    overflow-x: auto;
+}
+
+/* Akademik stil semantik tablo (.academic-table / table) */
+.academic-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    text-align: left;
+}
+
+/* Tablo başlık satırı (.academic-table thead) */
+.academic-table thead {
+    border-bottom: 2px solid var(--border-color);
+}
+
+/* Tablo başlık hücreleri (.academic-table th): Sütun adları dolgusu ve arka planı */
+.academic-table th {
+    padding: 14px 18px;
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    background-color: var(--bg-secondary);
+}
+
+/* Tablo veri hücreleri (.academic-table td): Alt kenarlık ve iç dolgular */
+.academic-table td {
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-secondary);
+}
+
+/* Tablo son satır alt kenarlık temizliği (.academic-table tbody tr:last-child td) */
+.academic-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Tablo satır fare üzerine gelme durumu (.academic-table tbody tr:hover) */
+.academic-table tbody tr:hover {
+    background-color: var(--bg-secondary);
+}
+
+/* Teknoloji adı hücresi (.tech-cell): Monospace yazı tipi ve kalınlık */
+.tech-cell {
+    font-family: var(--font-mono);
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+}
+
+/* Akademik yetkinlik rozeti (.academic-badge): Ortak rozet kapsayıcısı */
+.academic-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 4px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    font-family: var(--font-mono);
+}
+
+/* İleri düzey yetkinlik rozeti (.academic-badge.badge-adv): Yeşil renk tonlaması */
+.academic-badge.badge-adv {
+    background-color: var(--badge-adv-bg);
+    color: var(--badge-adv-color);
+    border: 1px solid var(--badge-adv-border);
+}
+
+/* Orta - İleri düzey rozeti (.academic-badge.badge-mid): Mavi renk tonlaması */
+.academic-badge.badge-mid {
+    background-color: var(--badge-bg);
+    color: var(--badge-color);
+    border: 1px solid var(--badge-border);
+}
+
+/* Orta düzey rozeti (.academic-badge.badge-base): Nötr gri tonlaması */
+.academic-badge.badge-base {
+    background-color: var(--bg-secondary);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+}
+
+/* ==========================================================================
+   8. İLETİŞİM FORMU VE KURUMSAL BİLGİLER
+   ========================================================================== */
+
+/* İletişim bölümü iki sütunlu yerleşimi (.contact-layout): Sol form, sağ kurum bilgileri */
+.contact-layout {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 32px;
+    align-items: start;
+}
+
+/* İletişim kutusu kartı (.contact-card): Ortak kart dolgu ve kenarlığı */
+.contact-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 32px;
+}
+
+/* İletişim kartı başlığı (.contact-box-title) */
+.contact-box-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Form alanı satır grubu (.form-row): Etiket ve girdiyi dikeyde gruplar */
+.form-row {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 18px;
+}
+
+/* Form alan etiketleri (.field-label): Net etiket okunabilirliği */
+.field-label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+/* Form giriş kutusu ve metin alanı (.field-input, .field-textarea): Ortak girdi stilleri */
+.field-input, .field-textarea {
+    width: 100%;
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 10px 14px;
+    font-size: 0.95rem;
+    font-family: var(--font-sans);
+    transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+/* Form girdileri odaklanma durumu (:focus): Vurgulu dış halka */
+.field-input:focus, .field-textarea:focus {
+    border-color: var(--accent-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
+}
+
+/* Metin alanı dikey boyutlandırma (.field-textarea) */
+.field-textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Form gönder butonu (.submit-btn): Vurgu rengi ve belirgin tıklama hissi */
+.submit-btn {
+    align-self: flex-start;
+    padding: 10px 24px;
+    background-color: var(--accent-color);
+    color: var(--accent-text);
+    border: none;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    font-family: var(--font-sans);
+    cursor: pointer;
+    transition: opacity var(--transition);
+}
+
+/* Gönder butonu hover durumu (.submit-btn:hover) */
+.submit-btn:hover {
+    opacity: 0.9;
+}
+
+/* Form bildirim paragrafı (.form-alert): Başlangıçta gizli durum */
+.form-alert {
+    font-size: 0.92rem;
+    font-weight: 500;
+    padding: 12px 16px;
+    border-radius: 6px;
+    margin-top: 16px;
+    display: none;
+}
+
+/* Form hata uyarısı (.form-alert.hata): Kırmızı renkli görünür bildirim */
+.form-alert.hata {
+    display: block;
+    background-color: var(--alert-error-bg);
+    color: var(--alert-error-text);
+    border: 1px solid var(--alert-error-border);
+}
+
+/* Form başarılı gönderim bildirimi (.form-alert.basari): Yeşil renkli görünür bildirim */
+.form-alert.basari {
+    display: block;
+    background-color: var(--alert-success-bg);
+    color: var(--alert-success-text);
+    border: 1px solid var(--alert-success-border);
+}
+
+/* İletişim detayları listesi (.academic-contact-list) */
+.academic-contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+/* İletişim detay satırı (.contact-detail-row): Etiket ve değeri yan yana hizalar */
+.contact-detail-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    padding: 10px 14px;
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+}
+
+/* İletişim detay etiketi (.detail-label) */
+.detail-label {
+    color: var(--text-muted);
+}
+
+/* İletişim detay değeri (.detail-value): Monospace font */
+.detail-value {
+    color: var(--text-primary);
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+}
+
+/* İletişim bağlantısı (.detail-link) */
+.detail-link {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+}
+
+/* İletişim linki hover durumu (.detail-link:hover) */
+.detail-link:hover {
+    text-decoration: underline;
+}
+
+/* Üniversite resmi bağlılık kartı (.affiliation-box): Kurumsal detay alanı */
+.affiliation-box {
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+/* Kurum başlığı (.affil-title) */
+.affil-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+/* Kurum fakülte bilgisi (.affil-sub) */
+.affil-sub {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+/* Kurum program bilgisi (.affil-program) */
+.affil-program {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* Üniversite resmi web sitesi dış bağlantısı (.affil-external-link): Şartname harici linki */
+.affil-external-link {
+    display: inline-block;
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-top: 8px;
+    align-self: flex-start;
+}
+
+/* Dış bağlantı hover durumu (.affil-external-link:hover) */
+.affil-external-link:hover {
+    text-decoration: underline;
+}
+
+/* ==========================================================================
+   9. SAYFA ALT BİLGİSİ (FOOTER)
+   ========================================================================== */
+
+/* Sayfa alt bilgi alanı (.academic-footer): Alt sınır çizgisi ve iç dolgu */
+.academic-footer {
+    background-color: var(--bg-secondary);
+    border-top: 1px solid var(--border-color);
+    padding: 24px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* Alt bilgi içerik yerleşimi (.footer-content): İki yana hizalama */
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+
+/* Alt bilgi sağ blok (.footer-right-text): Monospace ders bilgisi */
+.footer-right-text {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+}
+
+/* ==========================================================================
+   10. DUYARLI TASARIM (RESPONSIVE @MEDIA)
+   Şartname Kuralı: 600px ve altı dar ekranlarda düzenin değişmesi ve yatay taşma olmaması
+   ========================================================================== */
+
+/* 600px ve daha dar ekranlar için medya sorgusu (@media (max-width: 600px)) */
+@media (max-width: 600px) {
+
+    /* Üst bilgi navigasyonunun mobilde dikey akışı */
+    .nav-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    /* Menü bağlantılarının mobilde alt alta dizilmesi */
+    .nav-menu {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        gap: 8px;
+    }
+
+    /* Menü linklerinin tam genişlik kaplaması */
+    .nav-menu a {
+        width: 100%;
+        padding: 6px 0;
+    }
+
+    /* Tema butonunun tam genişlik alması */
+    .theme-toggle-btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Bölüm dolgularının daraltılması */
+    .academic-section {
+        padding: 48px 16px;
+    }
+
+    /* Profil yerleşiminin tek sütuna düşürülmesi */
+    .profile-layout {
+        grid-template-columns: 1fr;
+        gap: 36px;
+    }
+
+    /* CV iki sütununun tek sütuna geçmesi */
+    .cv-two-column {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    /* İletişim ızgarasının tek sütuna düşürülmesi */
+    .contact-layout {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    /* Gönder butonunun mobilde tam genişlik alması */
+    .submit-btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Alt bilginin dikey ortalanması */
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 8px;
+    }
+}

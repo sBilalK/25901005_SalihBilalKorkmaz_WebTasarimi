@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+    <!-- Arka plan koyu teknik dairesel ızgara yüzeyi -->
+    <defs>
+        <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#0f172a" />
+            <stop offset="100%" stop-color="#020617" />
+        </linearGradient>
+        <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#2dd4bf" />
+            <stop offset="100%" stop-color="#0d9488" />
+        </linearGradient>
+        <pattern id="gridPattern" width="20" height="20" patternUnits="userSpaceOnUse">
+            <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#1e293b" stroke-width="0.8" />
+        </pattern>
+    </defs>
+
+    <!-- Ana dış çerçeve -->
+    <rect width="400" height="400" rx="32" fill="url(#bgGrad)" stroke="#1e293b" stroke-width="2" />
+    <rect width="400" height="400" rx="32" fill="url(#gridPattern)" opacity="0.6" />
+
+    <!-- Siber güvenlik ve otonom sistemler halkası -->
+    <circle cx="200" cy="200" r="140" fill="none" stroke="#334155" stroke-width="1.5" stroke-dasharray="6 6" />
+    <circle cx="200" cy="200" r="115" fill="none" stroke="#1e293b" stroke-width="2" />
+    <circle cx="200" cy="200" r="90" fill="#0f172a" stroke="url(#accentGrad)" stroke-width="2" />
+
+    <!-- Merkezi siber güvenlik / donanım simgesi (Kalkan ve Terminal İzi) -->
+    <path d="M200 135 L255 160 V210 C255 245 200 270 200 270 C200 270 145 245 145 210 V160 Z" 
+          fill="#131d33" stroke="url(#accentGrad)" stroke-width="2.5" stroke-linejoin="round" />
+
+    <!-- Kalkan içindeki teknik kod/veri akışı çizgileri -->
+    <path d="M175 190 L192 205 L175 220" fill="none" stroke="#2dd4bf" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <line x1="202" y1="220" x2="225" y2="220" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round"/>
+
+    <!-- Çevreleyen telemetri ve sistem düğümleri -->
+    <circle cx="200" cy="60" r="4" fill="#2dd4bf" />
+    <circle cx="340" cy="200" r="4" fill="#38bdf8" />
+    <circle cx="200" cy="340" r="4" fill="#2dd4bf" />
+    <circle cx="60" cy="200" r="4" fill="#38bdf8" />
+
+    <!-- Köşe teknik kılavuz çizgileri -->
+    <path d="M30 45 L30 30 L45 30" fill="none" stroke="#334155" stroke-width="2" />
+    <path d="M370 45 L370 30 L355 30" fill="none" stroke="#334155" stroke-width="2" />
+    <path d="M30 355 L30 370 L45 370" fill="none" stroke="#334155" stroke-width="2" />
+    <path d="M370 355 L370 370 L355 370" fill="none" stroke="#334155" stroke-width="2" />
+
+    <!-- Alt bilgi teknik etiket -->
+    <text x="200" y="315" text-anchor="middle" fill="#64748b" font-family="ui-monospace, monospace" font-size="12" letter-spacing="2">DEV // SEC // AI</text>
+</svg>
